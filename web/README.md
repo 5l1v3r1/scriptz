@@ -1,16 +1,15 @@
  * [Dropbox-cli](Dropbox-cli) - Dropbox Uploader is a BASH script which can be used to upload, download, list or delete files from Dropbox, an online file sharing, synchronization and backup service. (https://github.com/andreafabrizi/Dropbox-Uploader)
- * [fbcmd](fbcmd) - 
+ * [fbcmd](fbcmd) - facebook command line utility
  * [mixcloud-downloader](mixcloud-downloader) - a simple php script to download mixcloud originals (uncompressed) (https://github.com/peppy/mixcloud-downloader)
- * [startpages](startpages) - 
+ * [startpages](startpages) - custom landing pages for web browsers
  * [Uppity](Uppity) - Uppity -- The pastebin client with an attitude (https://github.com/Kiwi/Uppity)
- * [userstyles](userstyles) - 
+ * [userstyles-userscripts](userstyles-userscripts) - userscripts, userstyles and userchrome files for firefox
  * [youtube_playlist](youtube_playlist) - A bookmarklet to find all the youtube links in a page and play them back-to-back (https://github.com/zaius/youtube_playlist)
 
 
  * [encode-uri.sh](encode-uri.sh) - This command line percent-encodes strings, even binary data.
  * [extract-8to15chars-words.sh](extract-8to15chars-words.sh) - extract 8 to 15 characters words from a webpage
  * [social-poster.py](facebook-poster.py) - get bookmarks tag from a netscape-style bookmarks.html export (Delicious, Shaarli...) and post them to Facebook or Twitter. Can post only links matching a specific tag, at a defined interval. Allows setting number of link to post.
- * [fbcmd_update.php](fbcmd_update.php) - 
  * [gettumblrpics.sh](gettumblrpics.sh) - Dowload pictures from http://tumblr.com blogs
  * [get-video-embed-code.sh](get-video-embed-code.sh) - create embed codes for Youtube or Vimeo videos from their URLs.
  * [get-webpage-title.sh](get-webpage-title.sh) - Fetches a webpage title

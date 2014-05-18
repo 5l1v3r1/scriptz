@@ -17,16 +17,16 @@
 	path = sysadmin/tespeed
 	url = https://github.com/Janhouse/tespeed
 [submodule "utility/bd"]
-	path = utility/bd
+	path = sysadmin/bd
 	url = https://github.com/vigneshwaranr/bd
 [submodule "web/youtube_playlist"]
 	path = web/youtube_playlist
 	url = https://github.com/zaius/youtube_playlist
 [submodule "misc/ansiweather"]
-	path = misc/ansiweather
+	path = utility/ansiweather
 	url = https://github.com/fcambus/ansiweather
 [submodule "utility/conversion/DokuWiki-to-Markdown-Converter"]
-	path = utility/conversion/DokuWiki-to-Markdown-Converter
+	path = dev/dokuwiki-tools/DokuWiki-to-Markdown-Converter
 	url = https://github.com/ludoza/DokuWiki-to-Markdown-Converter
 [submodule "media/mp3-scripts"]
 	path = media/mp3-scripts
@@ -41,10 +41,10 @@
 	path = utility/cb-wmhacks
 	url = https://github.com/corenominal/cb-wmhacks
 [submodule "utility/histo"]
-	path = utility/histo
+	path = dev/histo
 	url = https://github.com/visionmedia/histo
 [submodule "utility/spark"]
-	path = utility/spark
+	path = dev/spark
 	url = https://github.com/holman/spark
 [submodule "utility/todo.txt-cli"]
 	path = utility/todo.txt-cli
@@ -103,3 +103,6 @@
 [submodule "utility/lightsOn"]
 	path = utility/lightsOn
 	url = https://github.com/iye/lightsOn
+[submodule "web/fbcmd"]
+	path = web/fbcmd
+	url = https://github.com/dtompkins/fbcmd
