@@ -60,9 +60,9 @@ for item in links:
             if service == 'fb':
                 call(["fbcmd", "FEEDLINK", item.get('href')])
             elif service == 'twitter':
-                call(["twidge", "update", item.get('href') + " " + outitem])
+                call(["twidge", "update", item.get('href') + " " + outitem.decode('unicode_escape').encode('ascii','ignore')])
+                #TODO: if twidge's exit status is not 0, something went wrong, Output an error message
                 #TODO: trim item href and outitem to max.140 chars
-                #BUG: Upstream: https://github.com/jgoerzen/twidge/issues/58 prevents some items from being posted
             else:
                 print "Error: SERVICE must be fb or twitter."
                 sys.exit(1)
