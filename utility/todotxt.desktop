@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=TodoTxt
+Comment=Terminal-based Todo List manager
+Comment[fr]=Gestionnaire de Todo List en ligne de commande
+GenericName=TodoTxt
+Exec=todotxt
+TryExec=todotxt
+Icon=evolution-tasks
+Categories=Accessories;Utility,Office
+Terminal=true
