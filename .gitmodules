@@ -7,9 +7,6 @@
 [submodule "sysadmin/speetouch-keygen"]
 	path = sysadmin/netsec/speetouch-keygen
 	url = https://github.com/renatomartins/thomson-key
-[submodule "sysadmin/wifite"]
-	path = sysadmin/netsec/wifite
-	url = https://github.com/derv82/wifite
 [submodule "web/mixcloud-downloader"]
 	path = web/mixcloud-downloader
 	url = https://github.com/peppy/mixcloud-downloader
