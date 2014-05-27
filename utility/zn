@@ -44,7 +44,7 @@ zim --plugin quicknote notebook=Notes namespace="Calendar:$NS" basename="$BN" ap
 
 #Filter/search in notes	
 function _FilterNotes() {
-egrep -ri --binary-files=without-match --color=always "$*" $NOTEBOOK | sort
+egrep -ri --binary-files=without-match --color=always "$*" $NOTEBOOK |sed -e "s|$NOTEBOOK||g" -e "s|/Calendar/`date +%Y`/||g" -e "s/.txt//g" | sort
 }
 
 #List all tags	
@@ -66,16 +66,17 @@ function _ListTasks() {
 	
 function _Main() {
 if [ "$1" = "h" -o "$1" = "--help" -o "$1" = "-h" ]
-then echo "$USAGE"
+	then echo "$USAGE"
 elif [ "$1" = "a" -o "$1" = "add" ]
-then shift; echo adding; _AddNote "$*"
+	then shift; echo adding; _AddNote "$*"
 elif [[ "$*" = "" ]]
-then _ListNotes
+	then _ListNotes
 elif [ "$1" = "t" -o "$1" = "tasks" ]
-then _ListTasks
+	then _ListTasks
 elif [[ "$1" = "@" ]]
-then _ListTags
-else _FilterNotes "$*"
+	then _ListTags
+else
+	_FilterNotes "$*"
 fi
 	}
 	
