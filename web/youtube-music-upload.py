@@ -16,7 +16,7 @@ __email__ = nodiscc@gmail.com
 
 #TODO: return errors with zenity (python-vsgui)
 #TODO: check for avconv/ffmpeg and youtube-upload executables
-#TODO: ability to upload FLAC files
+#TODO: ability to upload FLAC and OGG files
 
 from mutagen.id3 import ID3
 import ConfigParser
@@ -28,35 +28,35 @@ scriptname = argv[0]
 
 #Parse config file
 config_path = os.environ["HOME"] + '/.config/youtubeuploadrc'
-try:
-    config = ConfigParser.ConfigParser()
-    config.read(config_path)
-    yt_user = config.get('Youtube', 'Email', 0)
-    yt_passwd = config.get('Youtube', 'Password', 0)
-except: #Config file not ok, ask for user input
-    try:
-        print "Config file %s not readable or invalid!" % config_path
-        yt_user = raw_input('Enter your Youtube account email address: ')
-        yt_passwd = raw_input('Enter your Youtube account password: ')
-        config.add_section('Youtube')
-        config.set('Youtube','Email', yt_user)
-        config.set('Youtube','Password', yt_passwd)
-        print "Email and password stored in %s" % config_path
-    except ConfigParser.DuplicateSectionError:
-        overwrite = raw_input("Overwrite existing config? (Y/n) ")
-        if overwrite.lower() not in ['y','yes','']:
-            print "Exiting."
-            exit(1)
-        else:
-            os.remove(config_path)
-            config.read(config_path)
-            config.add_section('Youtube')
-            config.set('Youtube','Email', yt_user)
-            config.set('Youtube','Password', yt_passwd)
-            cfgfile = open(config_path) #BUG: doesn't work?
-            config.write(cfgfile)
-            cfgfile.close()
-            print "New config stored in %s" % config_path
+#try: #TODO BUG: removed try/except because it always ends up going into the except loop, even though the config file is ok. For now, make sure it *really* is ok
+config = ConfigParser.ConfigParser()
+config.read(config_path)
+yt_user = config.get('Youtube', 'Email', 0)
+yt_passwd = config.get('Youtube', 'Password', 0)
+#except: #Config file not ok, ask for user input
+#    try:
+#        print "Config file %s not readable or invalid!" % config_path
+#        yt_user = raw_input('Enter your Youtube account email address: ')
+#        yt_passwd = raw_input('Enter your Youtube account password: ')
+#        config.add_section('Youtube')
+#        config.set('Youtube','Email', yt_user)
+#        config.set('Youtube','Password', yt_passwd)
+#        print "Email and password stored in %s" % config_path
+#    except ConfigParser.DuplicateSectionError:
+#        overwrite = raw_input("Overwrite existing config? (Y/n) ")
+#        if overwrite.lower() not in ['y','yes','']:
+#            print "Exiting."
+#            exit(1)
+#        else:
+#            os.remove(config_path)
+#            config.read(config_path)
+#            config.add_section('Youtube')
+#            config.set('Youtube','Email', yt_user)
+#            config.set('Youtube','Password', yt_passwd)
+#            cfgfile = open(config_path) #BUG: doesn't work?
+#            config.write(cfgfile)
+#            cfgfile.close()
+#            print "New config stored in %s" % config_path
 
 print "Config found at %s" % config_path
 
