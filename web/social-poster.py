@@ -1,10 +1,12 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 '''
 #Description: get bookmarks tag from a netscape-style bookmarks.html export (Delicious, Shaarli...) and post them to Facebook or Twitter. Can post only links matching a specific tag, at a defined interval. Allows setting number of link to post.
 #License: MIT (http://opensource.org/licenses/MIT)
 #Source: https://github.com/nodiscc/scriptz
 #Dependencies: python-bs4, fbcmd, twidge
 '''
+
 
 import os
 from bs4 import BeautifulSoup
@@ -60,9 +62,11 @@ for item in links:
             if service == 'fb':
                 call(["fbcmd", "FEEDLINK", item.get('href')])
             elif service == 'twitter':
-                call(["twidge", "update", item.get('href') + " " + outitem.decode('unicode_escape').encode('ascii','ignore')])
+                longtweet = item.get('href') + " " + outitem.encode('ascii','ignore')
+                tweet = longtweet[0:140]
+                call(["twidge", "update", tweet])
                 #TODO: if twidge's exit status is not 0, something went wrong, Output an error message
-                #TODO: trim item href and outitem to max.140 chars
+                #TODO: append item.tags as hashtags
             else:
                 print "Error: SERVICE must be fb or twitter."
                 sys.exit(1)
