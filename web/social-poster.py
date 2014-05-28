@@ -71,17 +71,13 @@ for item in links:
                 print "Error: SERVICE must be fb or twitter."
                 sys.exit(1)
             count = count + 1
+            posted.write(item.get('href') + "\n")
             posteditems = posteditems + "\n" + item.get('href')
             print '%s items posted! Waiting for %s seconds ...' % (count, sleeptime)
             time.sleep(int(sleeptime))
         else:
             pass
 
-#TODO: catch Ctrl+C and write posted items anyway
-
 print '''
 These %s links have been posted:''' % count
 print posteditems
-
-posted.write(posteditems)
-#TODO: delete posted items frrom bookmarks file after run: sed -i 's/\&amp\;/\&/g' m.html; for i in `cat posted.txt`; do sed -i "s|.*\"$i\".*||g" m.html; done; sed -i '/^$/d' m.html
