@@ -1,3 +1,4 @@
+#!/usr/bin/python
 '''
 SimpleSecureHTTPServer.py - simple HTTP server supporting SSL.
 Thanks to http://code.activestate.com/recipes/442473/
@@ -8,7 +9,7 @@ openssl req -new -x509 -keyout server.pem -out server.pem -days 365 -nodes
 TODO: Bug with TypeError: shutdown() takes exactly 0 arguments (1 given)
 
 - replace fpem with the location of your .pem server file.
-- the default port is 443.
+- the default port is 4443.
 
 usage: python SimpleSecureHTTPServer.py
 '''
