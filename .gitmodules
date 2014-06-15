@@ -103,3 +103,6 @@
 [submodule "web/fbcmd"]
 	path = web/fbcmd
 	url = https://github.com/dtompkins/fbcmd
+[submodule "utility/xkcdpass"]
+	path = utility/xkcdpass
+	url = https://github.com/rasmus-storjohann/xkcdpass
