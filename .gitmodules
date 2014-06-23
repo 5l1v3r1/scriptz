@@ -106,3 +106,6 @@
 [submodule "utility/xkcdpass"]
 	path = utility/xkcdpass
 	url = https://github.com/rasmus-storjohann/xkcdpass
+[submodule "sysadmin/netsec/PHP-Shell-Detector"]
+	path = sysadmin/netsec/PHP-Shell-Detector
+	url = https://github.com/emposha/PHP-Shell-Detector
