@@ -109,3 +109,6 @@
 [submodule "sysadmin/netsec/PHP-Shell-Detector"]
 	path = sysadmin/netsec/PHP-Shell-Detector
 	url = https://github.com/emposha/PHP-Shell-Detector
+[submodule "media/color_transfer"]
+	path = media/color_transfer
+	url = https://github.com/jrosebr1/color_transfer
