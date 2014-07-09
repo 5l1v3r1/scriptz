@@ -1,6 +1,7 @@
 #!/bin/bash
 # MediaCrush (https://mediacru.sh) uploader
 # Jerome Leclanche <jerome.leclanche+mediacrush@gmail.com>
+# nodiscc <nodiscc@gmail.com>
 #Description: Upload files to https://mediacru.sh
 
 version=1.1.1
@@ -96,6 +97,20 @@ calculate_hash() {
     md5sum $1 | cut -d " " -f 1 | xxdrp | base64 | tr "+/" "-_" | cut -c 1-12
 }
 
+#Display desktop notifications and use clipboard, if available
+notify() {
+    if which notify-send >/dev/null && [[ ! -z "$DISPLAY" ]]
+    then
+        if [[ $message == *Uploaded:* || $message = *Album:* ]] && which xclip >/dev/null
+            then
+            echo "$server/$hash" | xclip -selection c
+            notify-send -i gnome-screenshot "MediaCrush" "$message\nAddress copied to clipboard"
+        fi
+    else
+        notify-send -i gnome-screenshot "MediaCrush" "$message"
+    fi
+}
+
 upload() {
     for f in "$@"; do
 
@@ -112,7 +127,9 @@ upload() {
 
         if [[ $dry_run == true ]]; then
             hash=$(calculate_hash $f)
-            echo -e "\r\033[KUploaded: $server/$hash"
+            message="Uploaded: $server/$hash"
+            echo -e "$message"
+            notify
             continue
         fi
 
@@ -120,7 +137,9 @@ upload() {
         out=$(curl --silent -F "file=@$f" "$url")
 
         if [[ $? -ne 0 ]]; then
-            err "Could not upload to $url"
+            message="Could not upload to $url"
+            err "$message"
+            notify
             continue
         fi
 
@@ -129,10 +148,14 @@ upload() {
 
         if [[ $error == "415" ]]; then
             type=$(file --mime "$f")
-            err "The file type for $type is not supported"
+            message="The file type for $type is not supported"
+            err "$message"
+            notify
             continue
         elif [[ $error == "420" ]]; then
-            err "You are uploading too much, too fast. Try again later."
+            message="You are uploading too much, too fast. Try again later."
+            err "$message"
+            notify
             # abort everything, no sense trying to upload more
             exit 420
         fi
@@ -143,17 +166,25 @@ upload() {
             uploads="$uploads,$hash"
         fi
 
-        echo -e "\r\033[KUploaded: $server/$hash"
+        message="Uploaded: $server/$hash"
+        echo -e "$message"
+        notify
     done
 
     if [[ $create_album == true ]]; then
         if [[ $dry_run == true ]]; then
-            echo "Album: (not available)"
+            message="Album: (not available)"
+            echo "$message"
+            notify
         else
-			echo -n "Creating album..."
+			message="Creating album..."
+            echo "$message"
+            notify
 			out=$(curl --silent -F "list=$uploads" "$server/api/album/create")
 			hash=$(echo $out | sed -nre 's#.*"hash": "([^"]+)".*#\1#p')
-			echo -e "\r\033[KAlbum: $server/$hash"
+			message="Album: $server/$hash"
+            echo -e "$message"
+            notify
 
 			if [[ $open_files == true ]]; then
 				xdg-open "$server/$hash"
