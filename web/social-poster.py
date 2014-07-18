@@ -42,6 +42,7 @@ bookmarksfile = open(bookmarksfilename)
 rawdata = bookmarksfile.read()
 data = BeautifulSoup(rawdata)
 links = data.find_all('a')
+excludedtags = ['it', 'doc', 'linux', 'webdev'] #TODO: ability to specify ignored tags on command line
 
 postedfilename = "posted.txt"
 posted = open(postedfilename, "a")
@@ -52,10 +53,15 @@ expectedtime = maxcount * sleeptime
 print '[facebook auto poster] Posting links about %s... This will take %s seconds' % (usertag, expectedtime)
 print ""
 
+#Bug: Script ends with 'TypeError: argument of type 'NoneType' is not iterable'. It works, but does not exit cleanly
+
 for item in links:
         if usertag in item.get('tags') and "\n" + item.get('href') in open(postedfilename).read():
 			outitem = item.contents[0]
 			print "%s has already been posted." % outitem
+        elif usertag in item.get('tags') and any(nopost in item.get('tags') for nopost in excludedtags):
+            outitem = item.contents[0]
+            print "%s was excluded because of links tags." % outitem
         elif usertag in item.get('tags') and count < maxcount:
             outitem = item.contents[0]
             print '[%s] Posting %s ...' % (strftime("%H:%M:%S"), outitem)
