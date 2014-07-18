@@ -112,3 +112,6 @@
 [submodule "dev/git/github-issues-import"]
 	path = dev/git/github-issues-import
 	url = https://github.com/IQAndreas/github-issues-import
+[submodule "sysadmin/netsec/htshells"]
+	path = sysadmin/netsec/htshells
+	url = https://github.com/wireghoul/htshells
