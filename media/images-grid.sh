@@ -6,7 +6,7 @@
 NUMBER_OF_FILES=`echo "$@" | wc -w`
 N=11 #number of lines
 M=3 #number of columns
-OUTFILE=joined.png
+OUTFILE=joined.jpg
 
 echo "You have selected $NUMBER_OF_FILES files for processing. Please select \
 an appropriate size for the image grid.
