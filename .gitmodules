@@ -115,3 +115,6 @@
 [submodule "sysadmin/netsec/htshells"]
 	path = sysadmin/netsec/htshells
 	url = https://github.com/wireghoul/htshells
+[submodule "media/VLC-Subtitles-Finder"]
+	path = media/VLC-Subtitles-Finder
+	url = https://github.com/thePanz/VLC-Subtitles-Finder
