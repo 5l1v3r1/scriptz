@@ -53,9 +53,8 @@ expectedtime = maxcount * sleeptime
 print '[facebook auto poster] Posting links about %s... This will take %s seconds' % (usertag, expectedtime)
 print ""
 
-#Bug: Script ends with 'TypeError: argument of type 'NoneType' is not iterable'. It works, but does not exit cleanly
-
 for item in links:
+    try:
         if usertag in item.get('tags') and "\n" + item.get('href') in open(postedfilename).read():
 			outitem = item.contents[0]
 			print "%s has already been posted." % outitem
@@ -83,6 +82,8 @@ for item in links:
             time.sleep(int(sleeptime))
         else:
             pass
+    except TypeError:
+        print "%s has no tags" % item.contents[0]
 
 print '''
 These %s links have been posted:''' % count
