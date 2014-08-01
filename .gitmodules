@@ -118,3 +118,6 @@
 [submodule "media/VLC-Subtitles-Finder"]
 	path = media/VLC-Subtitles-Finder
 	url = https://github.com/thePanz/VLC-Subtitles-Finder
+[submodule "utility/beargap"]
+	path = utility/beargap
+	url = https://github.com/samrussell/beargap
