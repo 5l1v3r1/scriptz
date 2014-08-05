@@ -121,3 +121,6 @@
 [submodule "utility/beargap"]
 	path = utility/beargap
 	url = https://github.com/samrussell/beargap
+[submodule "sysadmin/netsec/the-backdoor-factory"]
+	path = sysadmin/netsec/the-backdoor-factory
+	url = https://github.com/secretsquirrel/the-backdoor-factory
