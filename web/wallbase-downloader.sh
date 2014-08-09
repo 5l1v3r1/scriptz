@@ -28,7 +28,7 @@ case "$1" in
    GETURL="$WALLR"
    ;;
    *)
-   echo -e "Usage:n$0 r for randomn$0 n for newestn$0 s TERM for search TERM."
+   echo -e "Usage: $0 r for random, $0 n for newest, $0 s TERM for search TERM."
    exit 1
    ;;
 esac
