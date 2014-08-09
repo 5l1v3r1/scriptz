@@ -124,3 +124,12 @@
 [submodule "sysadmin/netsec/the-backdoor-factory"]
 	path = sysadmin/netsec/the-backdoor-factory
 	url = https://github.com/secretsquirrel/the-backdoor-factory
+[submodule "sysadmin/netsec/Weevely"]
+	path = sysadmin/netsec/Weevely
+	url = https://github.com/epinna/Weevely
+[submodule "sysadmin/netsec/WhatWeb"]
+	path = sysadmin/netsec/WhatWeb
+	url = https://github.com/urbanadventurer/WhatWeb
+[submodule "sysadmin/netsec/wpscan"]
+	path = sysadmin/netsec/wpscan
+	url = https://github.com/wpscanteam/wpscan
