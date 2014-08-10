@@ -44,7 +44,7 @@ data = BeautifulSoup(rawdata)
 links = data.find_all('a')
 excludedtags = ['it', 'doc', 'linux', 'webdev'] #TODO: ability to specify ignored tags on command line
 
-postedfilename = "posted.txt"
+postedfilename = "posted-" + service + ".txt"
 posted = open(postedfilename, "a")
 posteditems = ""
 count = 0
