@@ -136,3 +136,6 @@
 [submodule "sysadmin/network_map"]
 	path = sysadmin/network_map
 	url = https://github.com/Oros42/network_map/
+[submodule "sysadmin/netsec/wordhound"]
+	path = sysadmin/netsec/wordhound
+	url = https://bitbucket.org/mattinfosec/wordhound
