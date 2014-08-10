@@ -133,3 +133,6 @@
 [submodule "sysadmin/netsec/wpscan"]
 	path = sysadmin/netsec/wpscan
 	url = https://github.com/wpscanteam/wpscan
+[submodule "sysadmin/network_map"]
+	path = sysadmin/network_map
+	url = https://github.com/Oros42/network_map/
