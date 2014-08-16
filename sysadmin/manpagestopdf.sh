@@ -4,15 +4,15 @@
 #TODO: convert all _ in program names to " "
 
 #define what manpages, files etc. we want
-SYSADMIN_COMMANDS="addgroup cd mv cp rm du df rename touch delgroup adduser deluser groupadd groupdel useradd userdel dmsetup taskset insserv rcconf update-rc.d at lastb ls w who wtmp chage chmod chown chroot df dmesg getfacl setfacl install lsof lspci lsusb mkfs ntfsfix proc ps pstree top uptime vmstat signal man xargs faillog mktemp ltrace find locate update-alternatives pgrep bash htop fuser pkill killall atool tar gzip zip unrar 7z zcat zless logrotate ranger mount 7_signal pwd which service chattr logsave readlink free iostat sar mpstat pmap strace proc atop powertop whoami who id finger pinky multitail swatch tmux wall cryptsetup sudo lsblk"
+SYSADMIN_COMMANDS="addgroup cd mv cp rm du df rename touch delgroup adduser deluser groupadd groupdel useradd userdel dmsetup taskset insserv rcconf update-rc.d at lastb ls w who wtmp chage chmod chown chroot df dmesg getfacl setfacl install lsof lspci lsusb lshw inxi mkfs fsck ntfsfix proc ps pstree top uptime vmstat signal man xargs faillog mktemp ltrace find locate update-alternatives pgrep bash htop fuser pkill killall atool tar gzip zip unrar 7z zcat zless logrotate ranger mount mdadm lvm 7_signal pwd which service chattr logsave readlink free iostat iotop sar mpstat pmap strace proc atop powertop whoami who id finger pinky multitail swatch tmux screen wall cryptsetup sudo lsblk lynis rkhunter chkrootkit tiger maldet fdisk sfdisk parted"
 
 TEXTHANDLING_COMMANDS="awk cat cut grep head tail echo less sed tr wc ascii cmp comm column dirname basename fmt strings wdiff paste nl split sort shuf tee sponge readlink nl cmp"
 
-MISC_COMMANDS="apropos inotifywait xclipboard xclip hier watch wmctrl yes pdfimages enscript ps2pdf chm2pdf pdfimages pdftotext pdfunite date xdg-open svn git pv gnupg shuff dialog whiptail tzselect notify-send"
+MISC_COMMANDS="apropos cheat inotifywait xclipboard xclip hier watch wmctrl yes pdfimages enscript ps2pdf chm2pdf pdfimages pdftotext pdfunite date xdg-open svn git pv gnupg shuff dialog whiptail tzselect notify-send elinks"
 
-PACKAGEMANAGEMENT_COMMANDS="apt-cache apt-get aptitude dpkg dpkg-divert dpkg-reconfigure"
+PACKAGEMANAGEMENT_COMMANDS="apt-cache apt-get aptitude dpkg dpkg-divert dpkg-reconfigure apt apt-fast yum rpm "
 
-NET_COMMANDS="ssh-keygen ssh iptables iptables-apply iptables-restore iptables-save ufw smb.conf ssh ssh_config sshd sshd_config arpspoof dig ping mtr traceroute netstat nmap ss curl wget rsync wireshark tshark transmission-daemon iceweasel torify ifconfig ip route nslookup iptraf tcpdump ntop vnstat iftop nethogs ngrep bmon jnettop sshfs" 
+NET_COMMANDS="ssh-keygen ssh iptables iptables-apply iptables-restore iptables-save ufw smb.conf ssh ssh_config sshd sshd_config arpspoof dig ping hping mtr traceroute netstat netcat socat nmap ss curl wget rsync wireshark tshark transmission-daemon iceweasel torify ifconfig ip ifup ifdown route nslookup dnsyo  iptraf tcpdump ntop vnstat iftop iperf nethogs ngrep bmon jnettop sshfs autossh goaccess ngxtop" 
 
 MEDIA_COMMANDS="youtube-dl cclive ffmpeg mplayer gimp vlc scrot feh"
 
