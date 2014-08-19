@@ -10,11 +10,12 @@ R="\033[01;31m"
 NC="\033[00m"
 
 #Usage
-USAGE="$(basename $0) -a action -c container [-s size] [-m mountpoint]
+USAGE="$(basename $0) -a action -c container [-s size] [-m mountpoint] [-t]
 	action: 	mount,unmount,create
 	container:	LUKS container filename
 	mountpoint:	where to mount the volume
-	size:		size in MB for new volumes"
+	size:		size in MB for new volumes
+	-t:		use a randomly generated 30-character password"
 
 
 _CreateVolume() { #Create and format a LUKS volume
@@ -24,8 +25,16 @@ _CreateVolume() { #Create and format a LUKS volume
 
 	echo -e "${G}Writing $size MB zeroes to $container${NC}"
 	dd if=/dev/zero bs=1M count="$size" of="$container"
-	echo -e "${G}Formatting $container as LUKS volume${NC}"
-	sudo cryptsetup luksFormat "$container"
+	if [ "$TEMPKEY" != "1" ]
+		then
+			echo -e "${G}Formatting $container as LUKS volume${NC}"
+			sudo cryptsetup luksFormat "$container"
+		else
+			pwgen=$(pwgen -s 30 -n 1)
+			echo -e "${G}Formatting $container as LUKS volume, key is $pwgen${NC}"
+			echo "$pwgen" | sudo cryptsetup luksFormat "$container"
+	fi
+
 	echo -e "${G}Creating ext4 partition inside LUKS volume${NC}"
 	sudo cryptsetup luksOpen "$container" $(basename "$container")
 	sudo mkfs.ext4 /dev/mapper/$(basename "$container")
@@ -56,7 +65,7 @@ _UnmountVolume() { #Unmount and lock a LUKS volume
 
 #Main loop
 #Parse options
-while getopts ":a:c:s:m:h" opt; do
+while getopts ":a:c:s:m:th" opt; do
 	case $opt in
 	a) action=$OPTARG
 	;;
@@ -65,6 +74,8 @@ while getopts ":a:c:s:m:h" opt; do
 	s) size=$OPTARG
 	;;
 	m) mountpoint=$OPTARG
+	;;
+	t) TEMPKEY="1"
 	;;
 	h) echo "$USAGE"; exit 0
 	;;
