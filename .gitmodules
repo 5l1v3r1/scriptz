@@ -139,3 +139,6 @@
 [submodule "sysadmin/netsec/wordhound"]
 	path = sysadmin/netsec/wordhound
 	url = https://bitbucket.org/mattinfosec/wordhound
+[submodule "sysadmin/skx-sysadmin-utils"]
+	path = sysadmin/skx-sysadmin-utils
+	url = https://github.com/skx/sysadmin-util
