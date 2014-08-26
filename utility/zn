@@ -68,7 +68,7 @@ function _Main() {
 if [ "$1" = "h" -o "$1" = "--help" -o "$1" = "-h" ]
 	then echo "$USAGE"
 elif [ "$1" = "a" -o "$1" = "add" ]
-	then shift; echo adding; _AddNote "$*"
+	then shift; _AddNote "$*"
 elif [[ "$*" = "" ]]
 	then _ListNotes
 elif [ "$1" = "t" -o "$1" = "tasks" ]
