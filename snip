@@ -1,0 +1,37 @@
+#!/bin/bash
+#Description: Add or search text in a snippets file
+#Copyright: (c) 2104 nodiscc (nodiscc@gmail.com)
+#License: MIT (http://opensource.org/licenses/MIT)
+
+USAGE="$(basename $0) [searchterm] [-a text to add] [-o]
+	search term		word to look for in snippets file
+	-a some words	add some words to your snippets file
+	-o				open snippets file in text editor"
+
+snippetsfile="~/git/devtoolkit/snippets.md"
+
+
+###############################################################
+
+
+function _main() {
+	searchterm="$1"
+	case "$searchterm" in
+		"-a" ) shift; _addsnippet "$@";;
+		"-h"|"") echo "$USAGE"; exit 1;;
+		"*") _searchsnippet "$@";;
+	esac
+}
+
+function _searchsnippet() {
+	grep --color=always "$@" "$snippetsfile"
+}
+
+function _addsnippet() {
+	echo "\n\n$@" >> "$snippetsfile"
+}
+
+
+#################################################################
+
+_main "$@"
