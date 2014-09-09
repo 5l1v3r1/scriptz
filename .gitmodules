@@ -145,3 +145,6 @@
 [submodule "sysadmin/netsec/mbox-sandbox"]
 	path = sysadmin/netsec/mbox-sandbox
 	url = https://github.com/tsgates/mbox
+[submodule "sysadmin/netsec/NeoPI"]
+	path = sysadmin/netsec/NeoPI
+	url = https://github.com/Neohapsis/NeoPI
