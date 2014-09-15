@@ -148,3 +148,6 @@
 [submodule "sysadmin/netsec/NeoPI"]
 	path = sysadmin/netsec/NeoPI
 	url = https://github.com/Neohapsis/NeoPI
+[submodule "sysadmin/netsec/evilgrade"]
+	path = sysadmin/netsec/evilgrade
+	url = https://github.com/infobyte/evilgrade
