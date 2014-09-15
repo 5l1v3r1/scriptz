@@ -3,6 +3,7 @@
 #Source: https://raymii.org/s/software/Wallbase.cc_Command_line_script.html
 #License: MIT (http://opensource.org/licenses/MIT)
 #Copyright (c) 2012 Remy van Elst
+#See also https://www.reddit.com/r/bash/comments/2d2rwe/wallbasesh_the_automated_wallpaper_downloader/
 
 #first the vars
 BASEURL="http://wallbase.cc/search/"
