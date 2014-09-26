@@ -16,6 +16,8 @@ if [ "$COMMAND" = "q" -o "$COMMAND" = "quit" -o "$COMMAND" = "exit" ]
 	then exit
 elif [ "$COMMAND" = "c" ]
 	then clear; showprompt
+elif [ "$COMMAND" = "l|ls" ]
+	then clear; todo.sh ls; showprompt
 else
 	todo.sh $COMMAND;  showprompt
 fi
