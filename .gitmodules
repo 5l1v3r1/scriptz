@@ -151,3 +151,6 @@
 [submodule "sysadmin/netsec/evilgrade"]
 	path = sysadmin/netsec/evilgrade
 	url = https://github.com/infobyte/evilgrade
+[submodule "sysadmin/NoPriv"]
+	path = sysadmin/NoPriv
+	url = https://github.com/RaymiiOrg/NoPriv
