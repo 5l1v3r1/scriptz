@@ -12,7 +12,7 @@ MISC_COMMANDS="apropos cheat inotifywait xclipboard xclip hier watch wmctrl yes 
 
 PACKAGEMANAGEMENT_COMMANDS="apt-cache apt-get aptitude dpkg dpkg-divert dpkg-reconfigure apt apt-fast yum rpm "
 
-NET_COMMANDS="ssh-keygen ssh iptables iptables-apply iptables-restore iptables-save ufw smb.conf ssh ssh_config sshd sshd_config arpspoof dig ping hping mtr traceroute netstat netcat socat nmap ss curl wget rsync wireshark tshark transmission-daemon iceweasel torify ifconfig ip ifup ifdown route nslookup dnsyo  iptraf tcpdump ntop vnstat iftop iperf nethogs ngrep bmon jnettop sshfs autossh goaccess ngxtop" 
+NET_COMMANDS="ssh-keygen ssh iptables iptables-apply iptables-restore iptables-save ufw smb.conf ssh ssh_config sshd sshd_config arpspoof dig ping hping mtr traceroute netstat netcat socat nmap ss curl wget rsync wireshark tshark transmission-daemon iceweasel torify ifconfig ip ifup ifdown route nslookup dnsyo  iptraf tcpdump ntop vnstat iftop iperf nethogs ngrep bmon jnettop sshfs autossh goaccess ngxtop nmtui" 
 
 MEDIA_COMMANDS="youtube-dl cclive ffmpeg mplayer gimp vlc scrot feh"
 
