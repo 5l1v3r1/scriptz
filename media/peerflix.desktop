@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Peerflix
+GenericName=Peerflix
+Comment=Stream videos from the Bittorrent p2p network
+Exec=peerflix-wrapper %u
+TryExec=peerflix
+Icon=gnome-mplayer
+Terminal=false
+Type=Application
+Categories=AudioVideo;Player;Recorder;Network;FileTransfer;P2P;
+MimeType=x-scheme-handler/magnet;
