@@ -33,6 +33,10 @@ _CreateVolume() { #Create and format a LUKS volume
 	fi
 
 	echo -e "${G}Writing $size MB random data to $container${NC}"
+	if [ -e "$container" ]
+		then echo -e "${R}Error: target file already exists! Aborting.${NC}"; exit 1
+	fi
+
 	dd if=/dev/urandom bs=1M count="$size" of="$container"
 	if [ "$TEMPKEY" != "1" ]
 		then
@@ -116,9 +120,12 @@ fi
 
 
 case $action in
-	"create" ) _CreateVolume ;;
-	"mount" ) _MountVolume ;;
-	"unmount" ) _UnmountVolume ;;
+	"create" ) _CreateVolume
+	;;
+	"mount" ) _MountVolume
+	;;
+	"unmount" ) _UnmountVolume
+	;;
 	* ) echo -e "${R}$action is not a valid action"; exit 1 ;;
 esac
 
