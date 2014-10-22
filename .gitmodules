@@ -26,7 +26,7 @@
 	path = dev/dokuwiki-tools/DokuWiki-to-Markdown-Converter
 	url = https://github.com/ludoza/DokuWiki-to-Markdown-Converter
 [submodule "media/mp3-scripts"]
-	path = media/mp3-scripts
+	path = utility/mp3-scripts
 	url = https://github.com/mafrosis/mp3-scripts
 [submodule "sysadmin/LANs.py"]
 	path = sysadmin/netsec/LANs.py
@@ -65,7 +65,7 @@
 	path = dev/git/gitcheck
 	url = https://github.com/badele/gitcheck
 [submodule "media/realtimeconfigquickscan"]
-	path = media/realtimeconfigquickscan
+	path = TODO/untested/realtimeconfigquickscan
 	url = https://github.com/raboof/realtimeconfigquickscan
 [submodule "sysadmin/Linux_Exploit_Suggester"]
 	path = sysadmin/netsec/Linux_Exploit_Suggester
@@ -86,7 +86,7 @@
 	path = web/Dropbox-cli
 	url = https://github.com/andreafabrizi/Dropbox-Uploader
 [submodule "media/groove-dl"]
-	path = media/groove-dl
+	path = utility/groove-dl
 	url = https://github.com/jacktheripper51/groove-dl
 [submodule "sysadmin/evilmaid_chkdsk"]
 	path = sysadmin/netsec/evilmaid_chkdsk
@@ -107,7 +107,7 @@
 	path = sysadmin/netsec/PHP-Shell-Detector
 	url = https://github.com/emposha/PHP-Shell-Detector
 [submodule "media/color_transfer"]
-	path = media/color_transfer
+	path = TODO/untested/color_transfer
 	url = https://github.com/jrosebr1/color_transfer
 [submodule "dev/git/github-issues-import"]
 	path = dev/git/github-issues-import
@@ -116,7 +116,7 @@
 	path = sysadmin/netsec/htshells
 	url = https://github.com/wireghoul/htshells
 [submodule "media/VLC-Subtitles-Finder"]
-	path = media/VLC-Subtitles-Finder
+	path = utility/VLC-Subtitles-Finder
 	url = https://github.com/thePanz/VLC-Subtitles-Finder
 [submodule "utility/beargap"]
 	path = sysadmin/netsec/beargap
@@ -157,3 +157,9 @@
 [submodule "utility/location-history-visualizer"]
 	path = sysadmin/netsec/location-history-visualizer
 	url = https://github.com/theopolisme/location-history-visualizer
+[submodule "utility/todotxt/todo.txt-cli"]
+	path = utility/todotxt/todo.txt-cli
+	url = https://github.com/ginatrapani/todo.txt-cli
+[submodule "TODO/untested/xkcdpass"]
+	path = TODO/untested/xkcdpass
+	url = https://github.com/rasmus-storjohann/xkcdpass
