@@ -154,3 +154,6 @@
 [submodule "sysadmin/NoPriv"]
 	path = sysadmin/NoPriv
 	url = https://github.com/RaymiiOrg/NoPriv
+[submodule "utility/location-history-visualizer"]
+	path = utility/location-history-visualizer
+	url = https://github.com/theopolisme/location-history-visualizer
