@@ -35,7 +35,7 @@
 	path = sysadmin/to
 	url = https://github.com/resultsreturned/to
 [submodule "utility/cb-wmhacks"]
-	path = utility/cb-wmhacks
+	path = TODO/cb-wmhacks
 	url = https://github.com/corenominal/cb-wmhacks
 [submodule "utility/histo"]
 	path = dev/histo
@@ -44,7 +44,7 @@
 	path = dev/spark
 	url = https://github.com/holman/spark
 [submodule "utility/todo.txt-cli"]
-	path = utility/todo.txt-cli
+	path = utility/todo.txt/todo.txt-cli
 	url = https://github.com/ginatrapani/todo.txt-cli
 [submodule "sysadmin/recon-ng"]
 	path = sysadmin/netsec/recon-ng
@@ -95,13 +95,13 @@
 	path = sysadmin/netsec/azazel
 	url = https://github.com/chokepoint/azazel.git
 [submodule "utility/lightsOn"]
-	path = utility/lightsOn
+	path = untested/lightsOn
 	url = https://github.com/iye/lightsOn
 [submodule "web/fbcmd"]
 	path = web/fbcmd
 	url = https://github.com/dtompkins/fbcmd
 [submodule "utility/xkcdpass"]
-	path = utility/xkcdpass
+	path = untested/xkcdpass
 	url = https://github.com/rasmus-storjohann/xkcdpass
 [submodule "sysadmin/netsec/PHP-Shell-Detector"]
 	path = sysadmin/netsec/PHP-Shell-Detector
@@ -119,7 +119,7 @@
 	path = media/VLC-Subtitles-Finder
 	url = https://github.com/thePanz/VLC-Subtitles-Finder
 [submodule "utility/beargap"]
-	path = utility/beargap
+	path = sysadmin/netsec/beargap
 	url = https://github.com/samrussell/beargap
 [submodule "sysadmin/netsec/the-backdoor-factory"]
 	path = sysadmin/netsec/the-backdoor-factory
@@ -155,5 +155,5 @@
 	path = sysadmin/NoPriv
 	url = https://github.com/RaymiiOrg/NoPriv
 [submodule "utility/location-history-visualizer"]
-	path = utility/location-history-visualizer
+	path = sysadmin/netsec/location-history-visualizer
 	url = https://github.com/theopolisme/location-history-visualizer
