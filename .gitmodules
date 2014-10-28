@@ -163,3 +163,6 @@
 [submodule "TODO/untested/xkcdpass"]
 	path = TODO/untested/xkcdpass
 	url = https://github.com/rasmus-storjohann/xkcdpass
+[submodule "sysadmin/netsec/kernel-rootkit-module"]
+	path = sysadmin/netsec/kernel-rootkit-module
+	url = https://gist.github.com/jvns/6894934
