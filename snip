@@ -8,8 +8,10 @@ USAGE="$(basename $0) [searchterm] [-a text to add] [-o]
 	-a some words	add some words to your snippets file
 	-o				open snippets file in text editor"
 
-snippetsfile="$HOME/git/devtoolkit/snippets.md"
-
+if [[ "$snippetsfile" == "" ]]
+	then echo "the \$snippetsfile variable (path to your snippets file) is not set, please set it in your .bashrc"
+	exit 1
+fi
 
 ###############################################################
 
@@ -19,7 +21,7 @@ function _main() {
 	case "$searchterm" in
 		"-a" ) shift; _addsnippet "$@";;
 		"-h"|"") echo "$USAGE"; exit 1;;
-		"*") _searchsnippet "$@";;
+		* ) _searchsnippet "$@";;
 	esac
 }
 
@@ -34,4 +36,4 @@ function _addsnippet() {
 
 #################################################################
 
-_main "$@"
+_main $@
