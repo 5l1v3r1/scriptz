@@ -30,7 +30,7 @@ function _searchsnippet() {
 }
 
 function _addsnippet() {
-	echo "\n\n$@" >> "$snippetsfile"
+	echo -e "\n\n$@" >> "$snippetsfile"
 }
 
 
