@@ -2,7 +2,7 @@
 #Description: Kick/deauth machines from your wifi network
 #TODO: anti-hipster mode, find and deauth all E0:F8:47:* addresses
 #Another method to find MACs on LAN is to run arp-scan -I $iface --localnet
-
+#How to evade this: use a wired connection, use a faraday cage, lower transmission levels on the AP, setup 802.11w on the AP (https://en.wikipedia.org/wiki/IEEE_802.11w-2009)
 USAGE="USAGE: $(basename $0) [interface]"
 iface="$1"
 R="\033[00;31m"
