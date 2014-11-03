@@ -166,3 +166,6 @@
 [submodule "sysadmin/netsec/kernel-rootkit-module"]
 	path = sysadmin/netsec/kernel-rootkit-module
 	url = https://gist.github.com/jvns/6894934
+[submodule "dev/check-all-the-things"]
+	path = dev/check-all-the-things
+	url = https://anonscm.debian.org/git/collab-maint/check-all-the-things.git
