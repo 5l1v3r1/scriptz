@@ -1,0 +1,1 @@
+var script_about = 'https://openuserjs.org/scripts/jscher2000/JeffersonScher/Google_Hit_Hider_by_Domain_%28Search_Filter_Block_Sites%29';
