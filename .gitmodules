@@ -169,3 +169,6 @@
 [submodule "dev/check-all-the-things"]
 	path = dev/check-all-the-things
 	url = https://anonscm.debian.org/git/collab-maint/check-all-the-things.git
+[submodule "dev/git/git-feed"]
+	path = dev/git/git-feed
+	url = https://github.com/brennen/git-feed
