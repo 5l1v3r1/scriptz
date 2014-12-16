@@ -172,3 +172,6 @@
 [submodule "dev/git/git-feed"]
 	path = dev/git/git-feed
 	url = https://github.com/brennen/git-feed
+[submodule "web/imgur-album-downloader"]
+	path = web/imgur-album-downloader
+	url = https://github.com/alexgisby/imgur-album-downloader/
