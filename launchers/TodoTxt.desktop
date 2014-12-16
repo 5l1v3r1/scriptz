@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=TodoTxt
+Comment=Gestionnaire de Todo List en ligne de commande
+Exec=todotxt
+Icon=evolution-tasks
+Path=
+Terminal=true
+StartupNotify=false
+Name[fr_FR.utf8]=000-TodoTxt
