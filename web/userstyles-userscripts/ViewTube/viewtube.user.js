@@ -1,6 +1,6 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name		ViewTube
-// @version		2014.10.17
+// @version		2015.01.16
 // @description		Watch videos from video sharing websites without Flash Player.
 // @author		sebaro
 // @namespace		http://isebaro.com/viewtube
@@ -890,6 +890,10 @@ if (page.url.indexOf('youtube.com/watch') != -1) {
     var ytSignFuncName, ytSignFuncBody, ytSwapFuncName, ytSwapFuncBody, ytFuncMatch;
     ytSignFuncName = ytScriptSrc.match(/\.signature\s*=\s*((\$|_|\w)+)\(\w+\)/);
     ytSignFuncName = (ytSignFuncName) ? ytSignFuncName[1] : null;
+    if (!ytSignFuncName) {
+      ytSignFuncName = ytScriptSrc.match(/"signature"\s*,\s*(.*?)\(/);
+      ytSignFuncName = (ytSignFuncName) ? ytSignFuncName[1] : null;
+    }
     if (ytSignFuncName) {
       ytFuncMatch = 'function\\s+' + ytSignFuncName.replace(/\$/, '\\$') + '\\s*\\(\\w+\\)\\s*\\{(.*?)\\}';
       ytSignFuncBody = ytScriptSrc.match(ytFuncMatch);
@@ -951,7 +955,7 @@ if (page.url.indexOf('youtube.com/watch') != -1) {
 	ytVideoID = (ytVideoID) ? ytVideoID[2] : null;
       }
       if (ytVideoID) {
-	var ytVideosInfoURL = page.win.location.protocol + '//' + page.win.location.hostname + '/get_video_info?video_id=' + ytVideoID + '&el=detailpage&ps=default&eurl=&gl=US&hl=en';
+	var ytVideosInfoURL = page.win.location.protocol + '//' + page.win.location.hostname + '/get_video_info?video_id=' + ytVideoID;
 	var ytVideosInfo = getMyContent(ytVideosInfoURL, 'TEXT', false);
 	if (ytVideosInfo) {
 	  ytVideosEncodedFmts = ytVideosInfo.match(/url_encoded_fmt_stream_map=(.*?)&/);
@@ -985,16 +989,24 @@ if (page.url.indexOf('youtube.com/watch') != -1) {
     /* Player Width & Height */
     var ytPlayerWidth = 640;
     var ytPlayerHeight = 382;
-    var ytPlayerWideWidth = 1040;
-    var ytPlayerWideHeight = 607;
+    var ytPlayerWideWidth = 1066;
+    var ytPlayerWideHeight = 622;
     var ytSidebarMarginWide = 10;
     var ytScreenWidth = page.win.innerWidth || page.doc.documentElement.clientWidth;
-    if (ytScreenWidth >= 1294) {
+    var ytScreenHeight = page.win.innerHeight || page.doc.documentElement.clientHeight;
+    if (ytScreenWidth >= 1720 && ytScreenHeight >= 980) {
+      ytPlayerWidth = 1280;
+      ytPlayerHeight = 742;
+      ytPlayerWideWidth = 1706;
+      ytPlayerWideHeight = 982;
+      ytSidebarMarginWide = 370;
+    }
+    else if (ytScreenWidth >= 1294 && ytScreenHeight >= 630) {
       ytPlayerWidth = 854;
       ytPlayerHeight = 502;
-      ytPlayerWideWidth = 1254;
-      ytPlayerWideHeight = 728;
-      ytSidebarMarginWide = 120;
+      ytPlayerWideWidth = 1280;
+      ytPlayerWideHeight = 742;
+      ytSidebarMarginWide = 130;
     }
 
     /* My Player Window */
@@ -1065,7 +1077,14 @@ if (page.url.indexOf('youtube.com/watch') != -1) {
 	'172': 'High Bitrate Audio WebM',
 	'244': 'Standard Definition Video WebM',
 	'247': 'High Definition Video WebM',
-	'248': 'Full High Definition Video WebM'
+	'248': 'Full High Definition Video WebM',
+	'266': 'Ultra High Definition Video MP4',
+	'272': 'Ultra High Definition Video WebM',
+	'298': 'High Definition Video MP4',
+	'299': 'Full High Definition Video MP4',
+	'302': 'High Definition Video WebM',
+	'303': 'Full High Definition Video WebM',
+	'313': 'Ultra High Definition Video WebM'
       };
       var ytVideoFound = false;
       var ytVideos = ytVideosContent.split(',');
@@ -1081,8 +1100,8 @@ if (page.url.indexOf('youtube.com/watch') != -1) {
 	  myVideoCode = ytVideoFormats[ytVideoCode];
 	  if (myVideoCode) {
 	    ytVideo = ytVideos[i].replace (/url=/, '').replace(/&$/, '').replace(/&itag=\d{1,3}/, '');
-	    if (ytVideo.match(/type=.*?&/)) ytVideo = ytVideo.replace(/type=.*?&/, '');
-	    else ytVideo = ytVideo.replace(/&type=.*$/, '');
+	    if (ytVideo.match(/type=(video|audio).*?&/)) ytVideo = ytVideo.replace(/type=(video|audio).*?&/, '');
+	    else ytVideo = ytVideo.replace(/&type=(video|audio).*$/, '');
 	    if (ytVideo.match(/&sig=/)) ytVideo = ytVideo.replace (/&sig=/, '&signature=');
 	    else if (ytVideo.match(/&s=/)) {
 	      var ytSig = ytVideo.match(/&s=(.*?)(&|$)/);
@@ -1107,10 +1126,13 @@ if (page.url.indexOf('youtube.com/watch') != -1) {
       if (ytVideoFound) {
 	/* DASH */
 	if (!ytVideoList['Standard Definition MP4'] && ytVideoList['Standard Definition Video MP4']) ytVideoList['Standard Definition MP4'] = 'DASH';
+	if (!ytVideoList['High Definition MP4'] && ytVideoList['High Definition Video MP4']) ytVideoList['High Definition MP4'] = 'DASH';
 	if (!ytVideoList['Full High Definition MP4'] && ytVideoList['Full High Definition Video MP4']) ytVideoList['Full High Definition MP4'] = 'DASH';
+	if (!ytVideoList['Ultra High Definition MP4'] && ytVideoList['Ultra High Definition Video MP4']) ytVideoList['Ultra High Definition MP4'] = 'DASH';
 	if (!ytVideoList['Standard Definition WebM'] && ytVideoList['Standard Definition Video WebM']) ytVideoList['Standard Definition WebM'] = 'DASH';
 	if (!ytVideoList['High Definition WebM'] && ytVideoList['High Definition Video WebM']) ytVideoList['High Definition WebM'] = 'DASH';
 	if (!ytVideoList['Full High Definition WebM'] && ytVideoList['Full High Definition Video WebM']) ytVideoList['Full High Definition WebM'] = 'DASH';
+	if (!ytVideoList['Ultra High Definition WebM'] && ytVideoList['Ultra High Definition Video WebM']) ytVideoList['Ultra High Definition WebM'] = 'DASH';
 
 	feature['dash'] = true;
 	option['autoget'] = true;
@@ -1128,7 +1150,8 @@ if (page.url.indexOf('youtube.com/watch') != -1) {
 	'92': 'Very Low Definition MP4',
 	'93': 'Low Definition MP4',
 	'94': 'Standard Definition MP4',
-	'95': 'High Definition MP4'
+	'95': 'High Definition MP4',
+	'96': 'Full High Definition MP4'
       };
       ytVideoList["Any Definition MP4"] = ytHLSVideos;
       if (ytHLSContent) {
@@ -1241,13 +1264,19 @@ else if (page.url.indexOf('dailymotion.com/video') != -1) {
 
     /* Get Videos Content */
     var dmEmbed = page.url.replace(/\/video\//, "/embed/video/");
-    dmVideosContent =  getMyContent (dmEmbed, 'info\\s+=\\s+\\{(.*)\\},', false);
+    dmVideosContent = getMyContent (dmEmbed, 'info\\s+=\\s+\\{(.*)\\},', false);
+    
+    /* Fix content size and player window overflow */
+    var dmContent = getMyElement ('', 'div', 'id', 'content', -1, false);
+    if (dmContent) styleMyElement(dmContent, {maxWidth: '1000px'})
+    var dmPlayerJSBox = getMyElement ('', 'div', 'class', 'js-player-box', 0, false);
+    if (dmPlayerJSBox) styleMyElement(dmPlayerJSBox, {overflow: 'visible'})
 
     /* My Player Window */
     var myPlayerWindow = createMyElement ('div', '', '', '', '');
-    styleMyElement (myPlayerWindow, {position: 'relative', width: '620px', height: '379px', backgroundColor: '#FFFFFF'});
+    styleMyElement (myPlayerWindow, {position: 'relative', width: '670px', height: '400px', backgroundColor: '#FFFFFF'});
     modifyMyElement (dmPlayerWindow, 'div', '', true);
-    styleMyElement (dmPlayerWindow, {height: '100%'});
+    styleMyElement (dmPlayerWindow, {overflow: 'visible'});
     appendMyElement (dmPlayerWindow, myPlayerWindow);
 
     /* Get Videos */
@@ -1272,7 +1301,7 @@ else if (page.url.indexOf('dailymotion.com/video') != -1) {
 
       if (dmVideoFound) {
 	/* Get Watch Sidebar */
-	var dmSidebarWindow = getMyElement ('', 'div', 'id', 'right_content_box', -1, false);
+	var dmSidebarWindow = getMyElement ('', 'div', 'class', 'js-related-box', 0, false);
 	
 	/* Create Player */
 	var dmDefaultVideo = 'Low Definition MP4';
@@ -1282,13 +1311,13 @@ else if (page.url.indexOf('dailymotion.com/video') != -1) {
 	  'videoList': dmVideoList,
 	  'videoPlay': dmDefaultVideo,
 	  'videoThumb': dmVideoThumb,
-	  'playerWidth': 620,
-	  'playerHeight': 379,
-	  'playerWideWidth': 940,
-	  'playerWideHeight': 563,
+	  'playerWidth': 670,
+	  'playerHeight': 400,
+	  'playerWideWidth': 990,
+	  'playerWideHeight': 586,
 	  'sidebarWindow': dmSidebarWindow,
-	  'sidebarMarginNormal': (dmSidebarWindow && dmSidebarWindow.style.marginTop) ? -416 : 0,
-	  'sidebarMarginWide': (dmSidebarWindow && dmSidebarWindow.style.marginTop) ? 10 : 570
+	  'sidebarMarginNormal': 0,
+	  'sidebarMarginWide': 600
 	};
 	feature['container'] = false;
 	option['definitions'] = ['Full High Definition', 'High Definition', 'Standard Definition', 'Low Definition', 'Very Low Definition'];
@@ -1304,6 +1333,20 @@ else if (page.url.indexOf('dailymotion.com/video') != -1) {
 	    }
 	  });
 	}
+
+	/* Fix windows size on widesize */
+	var dmPlayerContainer = getMyElement ('', 'div', 'id', 'player_container', -1, false);
+	if (dmPlayerContainer) {
+	  page.win.setTimeout(function() {
+	    styleMyElement(dmPlayerContainer, {height: player['playerWindow'].style.height});
+	  }, 1000);
+	  player['buttonWidesize'].addEventListener('click', function() {
+	    styleMyElement(dmPlayerContainer, {height: player['playerWindow'].style.height});
+	  }, false);
+	}
+
+	/* Fix panel */
+	styleMyElement(player['playerContent'], {marginTop: '5px'});
       }
       else {
 	showMyMessage ('!videos');
@@ -1394,6 +1437,8 @@ else if (page.url.match(/vimeo.com\/\d+/) || page.url.match(/vimeo.com\/channels
 	option['definitions'] = ['High Definition', 'Low Definition', 'Very Low Definition'];
 	option['containers'] = ['MP4'];
 	createMyPlayer ();
+
+	/* Fix panel */
 	styleMyElement(player['playerContent'], {marginTop: '3px'});
       }
       else {
@@ -1697,6 +1742,8 @@ else if (page.url.indexOf('funnyordie.com/videos') != -1) {
 	option['definitions'] = ['High Definition', 'Low Definition'];
 	option['containers'] = ['MP4'];
 	createMyPlayer ();
+
+	/* Fix panel */
 	styleMyElement(player['playerContent'], {marginTop: '7px'});
       }
       else {
@@ -1712,10 +1759,21 @@ else if (page.url.indexOf('funnyordie.com/videos') != -1) {
 
 // =====Videojug===== //
 
-else if (page.url.indexOf('videojug.com/film') != -1) {
+else if (page.url.indexOf('videojug.com/') != -1) {
 
   /* Get Player Window */
-  var vjPlayerWindow = getMyElement ('', 'div', 'class', 'top-border-only', 0, false);
+  var vjPlayerWindow;
+  var vjPlayerWidth = 640;
+  var vjPlayerHeight = 384;
+  var vjPlayerWide = true;
+  if (page.url.indexOf("videojug.com/film") != -1) vjPlayerWindow = getMyElement ('', 'div', 'class', 'top-border-only', 0, false);
+  else if (page.url.indexOf("videojug.com/series") != -1) {
+    vjPlayerWindow = getMyElement ('', 'div', 'class', 'largePlayer', 0, false);
+    vjPlayerWidth = 954;
+    vjPlayerHeight = 562;
+    vjPlayerWide = false;
+  }
+  else return;
   if (!vjPlayerWindow) {
     showMyMessage ('!player');
   }
@@ -1726,9 +1784,10 @@ else if (page.url.indexOf('videojug.com/film') != -1) {
     
     /* My Player Window */
     var myPlayerWindow = createMyElement ('div', '', '', '', '');
-    styleMyElement (myPlayerWindow, {position: 'relative', width: '640px', height: '384px', backgroundColor: '#F4F4F4'});
+    styleMyElement (myPlayerWindow, {position: 'relative', width: vjPlayerWidth + 'px', height: vjPlayerHeight + 'px', backgroundColor: '#F4F4F4'});
     modifyMyElement (vjPlayerWindow, 'div', '', true);
     styleMyElement (vjPlayerWindow, {height: '100%', backgroundColor: '#FFFFFF', border: 'none', boxShadow: 'none'});
+    if (!vjPlayerWide) styleMyElement (vjPlayerWindow, {width: vjPlayerWidth + 'px'});
     appendMyElement (vjPlayerWindow, myPlayerWindow);
 
     /* Get Videos */
@@ -1771,14 +1830,15 @@ else if (page.url.indexOf('videojug.com/film') != -1) {
 	  'videoList': vjVideoList,
 	  'videoPlay': vjDefaultVideo,
 	  'videoThumb': vjVideoThumb,
-	  'playerWidth': 640,
-	  'playerHeight': 384,
+	  'playerWidth': vjPlayerWidth,
+	  'playerHeight': vjPlayerHeight,
 	  'playerWideWidth': 954,
 	  'playerWideHeight': 562,
 	  'sidebarWindow': vjSidebarWindow,
 	  'sidebarMarginNormal': 5,
 	  'sidebarMarginWide': 580
 	};
+	feature['widesize'] = vjPlayerWide;
 	option['definition'] = 'SD';
 	option['definitions'] = ['Standard Definition', 'Low Definition', 'Very Low Definition'];
 	option['containers'] = ['MP4', 'FLV', 'Any'];
@@ -2077,8 +2137,9 @@ else if (page.url.indexOf('viki.com/videos') != -1) {
              
     /* My Player Window */
     var myPlayerWindow = createMyElement ('div', '', '', '', '');
-    styleMyElement (myPlayerWindow, {position: 'relative', width: '950px', height: '536px', backgroundColor: '#F4F4F4'});
+    styleMyElement (myPlayerWindow, {position: 'relative', width: '950px', height: '558px', backgroundColor: '#F4F4F4'});
     modifyMyElement (vkPlayerWindow, 'div', '', false, true);
+    if (vkPlayerWindow.parentNode) styleMyElement (vkPlayerWindow.parentNode, {height: '558px'});
     appendMyElement (vkPlayerWindow, myPlayerWindow);
     blockObject = vkPlayerWindow;
     
@@ -2101,7 +2162,7 @@ else if (page.url.indexOf('viki.com/videos') != -1) {
 	  'videoPlay': vkDefaultVideo,
 	  'videoThumb': vkVideoThumb,
 	  'playerWidth': 950,
-	  'playerHeight': 536
+	  'playerHeight': 558
 	};
 	feature['definition'] = false;
 	feature['container'] = false;
@@ -2253,7 +2314,8 @@ else if (page.url.indexOf('facebook.com/video') != -1) {
 	}
 	fbVideoThumb = fbVideosContent.match(/"thumbnail_src":"(.*?)"/);
 	fbVideoThumb = (fbVideoThumb) ? fbVideoThumb[1] : null;
-	fbVideoThumb = cleanMyContent(fbVideoThumb, false);
+	if (fbVideoThumb) fbVideoThumb = cleanMyContent(fbVideoThumb, false);
+	else fbVideoThumb = 'https://www.facebook.com/images/fb_icon_325x325.png';
       }
 	
       if (fbVideoFound) {
@@ -2373,6 +2435,8 @@ else if (page.url.indexOf('screen.yahoo.com') != -1) {
 	option['definitions'] = ['Full High Definition', 'High Definition', 'Standard Definition', 'Low Definition', 'Very Low Definition'];
 	option['containers'] = ['MP4', 'WebM', 'Any'];
 	createMyPlayer ();
+
+	/* Fix panel */
 	styleMyElement(player['playerContent'], {marginTop: '5px'});
       }
       else {
