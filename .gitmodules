@@ -175,3 +175,6 @@
 [submodule "web/imgur-album-downloader"]
 	path = web/imgur-album-downloader
 	url = https://github.com/alexgisby/imgur-album-downloader/
+[submodule "sysadmin/netsec/wifiphisher"]
+	path = sysadmin/netsec/wifiphisher
+	url = https://github.com/sophron/wifiphisher
