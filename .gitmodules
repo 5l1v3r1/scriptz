@@ -178,3 +178,6 @@
 [submodule "sysadmin/netsec/wifiphisher"]
 	path = sysadmin/netsec/wifiphisher
 	url = https://github.com/sophron/wifiphisher
+[submodule "dev/git/git-archive-all"]
+	path = dev/git/git-archive-all
+	url = https://github.com/Kentzo/git-archive-all
