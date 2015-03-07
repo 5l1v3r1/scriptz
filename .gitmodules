@@ -181,3 +181,9 @@
 [submodule "dev/git/git-archive-all"]
 	path = dev/git/git-archive-all
 	url = https://github.com/Kentzo/git-archive-all
+[submodule "utility/Classical-Alarm-Clock"]
+	path = utility/Classical-Alarm-Clock
+	url = https://github.com/WPaceley/Classical-Alarm-Clock
+[submodule "utility/JS-Web-Clock"]
+	path = utility/JS-Web-Clock
+	url = https://github.com/ityler/JS-Web-Clock
