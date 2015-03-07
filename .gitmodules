@@ -187,3 +187,6 @@
 [submodule "utility/JS-Web-Clock"]
 	path = utility/JS-Web-Clock
 	url = https://github.com/ityler/JS-Web-Clock
+[submodule "dev/regexr"]
+	path = dev/regexr
+	url = https://github.com/gskinner/regexr/
