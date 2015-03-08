@@ -190,3 +190,69 @@
 [submodule "dev/regexr"]
 	path = dev/regexr
 	url = https://github.com/gskinner/regexr/
+[submodule "webdev/Master-List-of-HTML5-JS-CSS-Resources"]
+	path = webdev/Master-List-of-HTML5-JS-CSS-Resources
+	url = https://github.com/gloparco/Master-List-of-HTML5-JS-CSS-Resources
+[submodule "webdev/awesome-php"]
+	path = webdev/awesome-php
+	url = https://github.com/ziadoz/awesome-php
+[submodule "dev/awesome-python"]
+	path = dev/awesome-python
+	url = https://github.com/vinta/awesome-python
+[submodule "sysadmin/awesome-sysadmin"]
+	path = sysadmin/awesome-sysadmin
+	url = https://github.com/kahun/awesome-sysadmin
+[submodule "dev/free-programming-books"]
+	path = dev/free-programming-books
+	url = https://github.com/vhf/free-programming-books
+[submodule "dev/github-cheat-sheet"]
+	path = dev/github-cheat-sheet
+	url = https://github.com/tiimgreen/github-cheat-sheet
+[submodule "sysadmin/netsec/kaliwiki"]
+	path = sysadmin/netsec/kaliwiki
+	url = https://github.com/pwnwiki/kaliwiki
+[submodule "sysadmin/good-at-ops"]
+	path = sysadmin/good-at-ops
+	url = https://github.com/adamhjk/good-at-ops
+[submodule "sysadmin/linuxgems"]
+	path = sysadmin/linuxgems
+	url = https://github.com/WilliamHackmore/linuxgems
+[submodule "dev/markdown-resources"]
+	path = dev/markdown-resources
+	url = https://github.com/rhythmus/markdown-resources
+[submodule "sysadmin/netsec/msfwiki"]
+	path = sysadmin/netsec/msfwiki
+	url = https://github.com/pwnwiki/msfwiki
+[submodule "sysadmin/node-sysvinit"]
+	path = sysadmin/node-sysvinit
+	url = https://github.com/nicokaiser/node-monit
+[submodule "dev/participating-in-open-source"]
+	path = dev/participating-in-open-source
+	url = https://github.com/btford/participating-in-open-source
+[submodule "sysadmin/netsec/pwnwiki.github.io"]
+	path = sysadmin/netsec/pwnwiki.github.io
+	url = https://github.com/pwnwiki/pwnwiki.github.io
+[submodule "sysadmin/netsec/q-metasploit"]
+	path = sysadmin/netsec/q-metasploit
+	url = https://github.com/pwnwiki/q
+[submodule "sysadmin/netsec/webappurls"]
+	path = sysadmin/netsec/webappurls
+	url = https://github.com/pwnwiki/webappurls
+[submodule "sysadmin/netsec/dfirwiki"]
+	path = sysadmin/netsec/dfirwiki
+	url = https://github.com/pwnwiki/dfirwiki
+[submodule "webdev/static-site-generator-comparison"]
+	path = webdev/static-site-generator-comparison
+	url = https://github.com/jaspervdj/static-site-generator-comparison/
+[submodule "sysadmin/netsec/TCP-32764"]
+	path = sysadmin/netsec/TCP-32764
+	url = https://github.com/elvanderb/TCP-32764
+[submodule "sysadmin/tldr"]
+	path = sysadmin/tldr
+	url = https://github.com/rprieto/tldr
+[submodule "webdev/webdev-principles"]
+	path = webdev/webdev-principles
+	url = https://github.com/veltman/principles
+[submodule "sysadmin/what-happens-when"]
+	path = sysadmin/what-happens-when
+	url = https://github.com/alex/what-happens-when
