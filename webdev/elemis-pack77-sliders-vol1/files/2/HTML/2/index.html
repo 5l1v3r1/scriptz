@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Slider No:2</title>
+<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+<script src="js/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.faded.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="faded">
+  <ul class="rap">
+    <li><span class="ribbon"></span><img src="images/1.jpg" alt="" /></li>
+    <li><img src="images/2.jpg" alt="" /></li>
+    <li><img src="images/3.jpg" alt="" /></li>
+    <li><span class="ribbon"></span><img src="images/4.jpg" alt="" /></li>
+  </ul>
+</div>
+<script type="text/javascript" charset="utf-8">
+	$(function(){
+		$("#faded").faded({
+			speed: 500,
+			crossfade: true,
+			bigtarget: true,
+			sequentialloading: true,
+			loadingimg: "images/loading.gif",
+			autoplay: false,
+			random: false,
+			autopagination:true
+		});
+	});
+</script>
+</body>
+</html>

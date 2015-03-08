@@ -1,0 +1,13 @@
+The fonts used are Tahoma, Georgia and Myriad Pro, which can be changed to your taste.
+
+The images on the preview are from Flickr's "Creative Common-licenced content for commercial use" library.
+
+The jQuery plugins used are available at:
+http://nathansearles.com/faded/
+http://nathansearles.com/loopedslider/
+
+You can check these pages for further usage tips for the plugins.
+
+Enjoy!
+
+- elemis

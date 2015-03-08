@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Slider No:1</title>
+<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+<script src="js/jquery-1.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/loopedslider.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="loopedSlider">
+  <a href="#" class="previous">previous</a>
+  <a href="#" class="next">next</a>
+  <div id="wrap">
+    <div class="container">
+      <div class="slides">
+        <div><img src="images/image.jpg" width="810" height="274" alt="First Image" /></div>
+        <div><img src="images/image2.jpg" width="810" height="274" alt="Second Image" /></div>
+        <div><img src="images/image3.jpg" width="810" height="274" alt="Third Image" /></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" charset="utf-8">
+	$(function(){
+		// Option set as a global variable
+		$.fn.loopedSlider.defaults.addPagination = false;
+		$('#loopedSlider').loopedSlider();
+	});
+</script>
+</body>
+</html>
