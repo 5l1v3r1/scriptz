@@ -197,16 +197,16 @@
 	path = webdev/awesome-php
 	url = https://github.com/ziadoz/awesome-php
 [submodule "dev/awesome-python"]
-	path = dev/awesome-python
+	path = dev/doc/awesome-python
 	url = https://github.com/vinta/awesome-python
 [submodule "sysadmin/awesome-sysadmin"]
 	path = sysadmin/awesome-sysadmin
 	url = https://github.com/kahun/awesome-sysadmin
 [submodule "dev/free-programming-books"]
-	path = dev/free-programming-books
+	path = dev/doc/free-programming-books
 	url = https://github.com/vhf/free-programming-books
 [submodule "dev/github-cheat-sheet"]
-	path = dev/github-cheat-sheet
+	path = dev/doc/github-cheat-sheet
 	url = https://github.com/tiimgreen/github-cheat-sheet
 [submodule "sysadmin/netsec/kaliwiki"]
 	path = sysadmin/netsec/kaliwiki
@@ -218,7 +218,7 @@
 	path = sysadmin/linuxgems
 	url = https://github.com/WilliamHackmore/linuxgems
 [submodule "dev/markdown-resources"]
-	path = dev/markdown-resources
+	path = dev/doc/markdown-resources
 	url = https://github.com/rhythmus/markdown-resources
 [submodule "sysadmin/netsec/msfwiki"]
 	path = sysadmin/netsec/msfwiki
@@ -227,7 +227,7 @@
 	path = sysadmin/node-sysvinit
 	url = https://github.com/nicokaiser/node-monit
 [submodule "dev/participating-in-open-source"]
-	path = dev/participating-in-open-source
+	path = dev/doc/participating-in-open-source
 	url = https://github.com/btford/participating-in-open-source
 [submodule "sysadmin/netsec/pwnwiki.github.io"]
 	path = sysadmin/netsec/pwnwiki.github.io
@@ -260,8 +260,11 @@
 	path = utility/Magnet2Torrent
 	url = https://github.com/danfolkes/Magnet2Torrent
 [submodule "dev/kali-live-build-config"]
-	path = dev/kali-live-build-config
+	path = dev/code-samples/kali-live-build-config
 	url = git://git.kali.org/live-build-config.git
 [submodule "dev/cb-metapackage-example"]
-	path = dev/cb-metapackage-example
+	path = dev/code-samples/cb-metapackage-example
 	url = https://github.com/corenominal/cb-metapackage
+[submodule "webdev/markdowncss"]
+	path = webdev/markdowncss
+	url = https://bitbucket.org/kevinburke/markdowncss.git
