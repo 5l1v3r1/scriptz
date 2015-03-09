@@ -1,0 +1,11 @@
+{
+	"name": "Facebook",
+	"version": "1.0",
+	"app": {
+		"launch": {
+			"web_url": "https://facebook.com/"
+			},
+		"urls": ["*://facebook.com/"]
+		},
+	"icons": {"128": "logo.png"}
+}

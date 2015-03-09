@@ -256,3 +256,12 @@
 [submodule "sysadmin/what-happens-when"]
 	path = sysadmin/what-happens-when
 	url = https://github.com/alex/what-happens-when
+[submodule "utility/Magnet2Torrent"]
+	path = utility/Magnet2Torrent
+	url = https://github.com/danfolkes/Magnet2Torrent
+[submodule "dev/kali-live-build-config"]
+	path = dev/kali-live-build-config
+	url = git://git.kali.org/live-build-config.git
+[submodule "dev/cb-metapackage-example"]
+	path = dev/cb-metapackage-example
+	url = https://github.com/corenominal/cb-metapackage
