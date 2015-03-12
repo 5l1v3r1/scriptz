@@ -30,7 +30,7 @@ for page in $TEXT_FILES; do enscript -p - $page | ps2pdf - -> `basename $page`.p
 for page in $HELP_COMMANDS; do help $page | enscript -p - | ps2pdf - -> $page.pdf; done
 
 
-#man -t $COMMAND | ps2pdf - -> $COMMAND.pdf
+#man -t $COMMAND | ps2pdf - $COMMAND.pdf
 #enscript to convert text files to ps
 #ps2pdf to convert ps files to pdf
 #chm2pdf --book or --continuous to convert chm files
