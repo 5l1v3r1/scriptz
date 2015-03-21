@@ -1,0 +1,216 @@
+<version name="1.19.13" package="com.googlecode.windows-package-manager.NpackdCL">
+	<url>http://downloads.sourceforge.net/project/npackd/com.googlecode.windows-package-manager.NpackdCL/NpackdCL-1.19.13.zip</url>
+	<sha1>69A1F83606A067140D3700321F3CB1DCBCAD38E4</sha1>
+</version>
+<version name="1.0.1" package="com.googlecode.windows-package-manager.CLU">
+	<url>http://npackd.googlecode.com/files/com.googlecode.windows-package-manager.CLU-1.0.1.zip</url>
+	<sha1>9ccc9f6203847adba6958e2be5b180e4e0152034</sha1>
+</version>
+<version name="1.8.0.25" package="com.oracle.JRE" type="one-file">
+	<file path=".Npackd\Uninstall.bat">"%nih%\UninstallMSI.bat" {26A24AE4-039D-4CA4-87B4-2F83218025F0}</file>
+	<file path=".Npackd\Install.bat">for /f "delims=" %%x in ('dir /b *.exe') do set setup=%%x
+"%setup%" /s /L .Npackd\MSI.log INSTALLDIR="%CD%" STATIC=1 &amp;&amp; del /f /q "%setup%"
+set err=%errorlevel%
+type .Npackd\MSI.log
+if %err% neq 0 exit /b %err%</file>
+	<url>http://downloads.sourceforge.net/project/npackd/com.oracle.JRE/com.oracle.JRE-1.8.0.25.exe</url>
+	<sha1>ff3d21c97e9ca71157f12221ccf0788a9775ec92</sha1>
+	<dependency package="com.googlecode.windows-package-manager.NpackdInstallerHelper" versions="[1.8, 2)">
+		<variable>nih</variable>
+	</dependency>
+	<detect-msi>{26A24AE4-039D-4CA4-87B4-2F83218025F0}</detect-msi>
+</version>
+<version name="1.8" package="com.googlecode.windows-package-manager.NpackdInstallerHelper">
+	<url>http://downloads.sourceforge.net/project/npackd/com.googlecode.windows-package-manager.NpackdInstallerHelper/com.googlecode.windows-package-manager.NpackdInstallerHelper-1.8.zip</url>
+	<sha1>80cb0fcbec53d631ac8be1791412bbb704b9d863</sha1>
+	<dependency package="com.googlecode.windows-package-manager.NpackdCL" versions="[1.17.9, 2)" />
+	<dependency package="org.7-zip.SevenZIPA" versions="[9.20, 12)" />
+	<dependency package="exeproxy" versions="[0.2, 1)" />
+</version>
+<version name="9.0.30729.6161" package="com.microsoft.VisualCPPRedistributable" type="one-file">
+	<detect-msi>{9BE518E6-ECC6-35A9-88E4-87755C07200F}</detect-msi>
+</version>
+<version name="9.20" package="org.7-zip.SevenZIPA">
+	<url>http://downloads.sourceforge.net/project/sevenzip/7-Zip/9.20/7za920.zip</url>
+	<sha1>9ce9ce89ebc070fea5d679936f21f9dde25faae0</sha1>
+</version>
+<version name="9.7" package="com.ghostscript.Ghostscript" type="one-file">
+	<file path=".Npackd\Install.bat">for /f %%x in ('dir /b *.exe') do set setup=%%x
+"%setup%" /S /D=%CD%</file>
+	<file path=".Npackd\Uninstall.bat">uninstgs.exe /S</file>
+	<url>http://downloads.ghostscript.com/public/gs907w32.exe</url>
+	<sha1>1ca075965983d2ce63edfe184032304d0e9d4f4f</sha1>
+</version>
+<version name="3.99.3" package="ar.com.buanzo.lame.LameForAudacity" type="one-file">
+	<file path=".Npackd\Install.bat">for /f "delims=" %%x in ('dir /b *.exe') do set setup=%%x
+"%setup%" /SP- /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL /NORESTART /DIR="%CD%" /SAVEINF="%CD%\.Npackd\InnoSetupInfo.ini" /LOG="%CD%\.Npackd\InnoSetupInstall.log"
+set err=%errorlevel%
+type .Npackd\InnoSetupInstall.log
+if %err% neq 0 exit %err%</file>
+	<file path=".Npackd\Uninstall.bat">unins000.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /LOG="%CD%\.Npackd\InnoSetupUninstall.log"
+set err=%errorlevel%
+type .Npackd\InnoSetupUninstall.log
+if %err% neq 0 exit %err%</file>
+	<url>https://dl.dropboxusercontent.com/u/176999101/ar.com.buanzo.lame.LameForAudacity-3.99.3.exe</url>
+	<sha1>a9aa7463aa9b685bdd20a5e12448c25b40a7677f</sha1>
+</version>
+<version name="1.75" package="net.nirsoft.MyUninstaller">
+	<important-file path="myuninst.exe" title="MyUninstaller" />
+	<url>https://dl.dropboxusercontent.com/u/176999101/net.nirsoft.MyUninstaller/net.nirsoft.MyUninstaller-1.75.zip</url>
+	<sha1>3a48308a78787fa6775e813f6d18979bb2a29a39</sha1>
+</version>
+<version name="4.5.51209.34209" package="com.microsoft.DotNetRedistributable" type="one-file">
+	<file path=".Npackd\Install.bat">for /f "delims=" %%x in ('dir /b *.exe') do set setup=%%x
+"%setup%" /norestart /q &gt; .Npackd\Output.txt &amp; type .Npackd\Output.txt &amp; del /f /q "%setup%"
+rem list of errors: http://msdn.microsoft.com/en-us/library/windows/desktop/aa368542(v=vs.85).aspx
+rem 3010=restart required
+if %errorlevel% equ 3010 exit /b 0</file>
+	<file path=".Npackd\Uninstall.bat">msiexec.exe /qn /norestart /Lime .Npackd\MSI.log /x{26784146-6E05-3FF9-9335-786C7C0FB5BE}
+set err=%errorlevel%
+type .Npackd\MSI.log
+if %err% equ 3010 goto eof
+if %err% neq 0 exit /b %err%</file>
+	<url>http://download.microsoft.com/download/E/2/1/E21644B5-2DF2-47C2-91BD-63C560427900/NDP452-KB2901907-x86-x64-AllOS-ENU.exe</url>
+	<detect-msi>{26784146-6E05-3FF9-9335-786C7C0FB5BE}</detect-msi>
+</version>
+<version name="0.8" package="com.github.bmatzelle.Gow" type="one-file">
+	<file path=".Npackd\Install.bat">for /f "delims=" %%x in ('dir /b *.exe') do set setup=%%x
+"%setup%" /S /D=%CD% &amp;&amp; del /f /q "%setup%"</file>
+	<file path=".Npackd\Uninstall.bat">Uninstall.exe /S _?=%CD%</file>
+	<url>https://github.com/bmatzelle/gow/releases/download/v0.8.0/Gow-0.8.0.exe</url>
+	<sha1>4ba1250be4f5dd14aff5f58bf24030252aee3893</sha1>
+</version>
+<package name="com.googlecode.windows-package-manager.NpackdCL">
+	<title>NpackdCL</title>
+	<url>http://code.google.com/p/windows-package-manager/</url>
+	<description>command line interface to Npackd</description>
+	<icon>https://lh6.googleusercontent.com/-R3PmyAtT6P8/T2iIJygyrqI/AAAAAAAAAbg/bCcaRCTAab8/s800/com.googlecode.windows-package-manager.NpackdCL.png</icon>
+	<license>org.gnu.GPLv3</license>
+	<category>Tools</category>
+	<link href="https://code.google.com/p/windows-package-manager/wiki/ChangeLog" rel="changelog" />
+</package>
+<package name="com.googlecode.windows-package-manager.CLU">
+	<title>CLU</title>
+	<url>http://code.google.com/p/windows-package-manager/</url>
+	<description>command line utility</description>
+	<icon>https://code.google.com/p/windows-package-manager/logo?cct=1351972670</icon>
+	<license>org.gnu.GPLv3</license>
+	<category>Tools</category>
+</package>
+<package name="com.oracle.JRE">
+	<title>JRE</title>
+	<url>http://www.java.com/en/</url>
+	<description>Java runtime. This package uses internal version numbers. For example, 1.7.0.1 corresponds to "Version 7 update 1 or 7u1"</description>
+	<icon>https://lh3.googleusercontent.com/-sXXEAE_p8bQ/Ucq_VzLdikI/AAAAAAAACRg/S2kpAQb-ymQ/s800/jre.png</icon>
+	<license>com.oracle.JavaSELicense</license>
+	<category>Development</category>
+</package>
+<package name="com.googlecode.windows-package-manager.NpackdInstallerHelper">
+	<title>Npackd Installer Helper</title>
+	<url>http://code.google.com/p/windows-package-manager/</url>
+	<description>helps to install/uninstall Npackd packages</description>
+	<icon>https://lh5.googleusercontent.com/-3rSJezE_JY4/T2iIZjLuiDI/AAAAAAAAAbo/-KN9No1ejd8/s800/com.googlecode.windows-package-manager.NpackdInstallerHelper.png</icon>
+	<license>org.gnu.GPLv3</license>
+	<category>Development</category>
+</package>
+<package name="com.microsoft.VisualCPPRedistributable">
+	<title>Visual C++ redistributable package</title>
+	<url>http://www.microsoft.com/en-us/download/details.aspx?id=30679</url>
+	<description>Visual C++ runtime
+Visual Studio -	4.0
+Visual Studio 97 - 5.0
+Visual Studio 6.0 - 6.0
+Visual Studio .NET (2002) - 7.0
+Visual Studio .NET 2003 - 7.1
+Visual Studio 2005 - 8.0
+Visual Studio 2008 - 9.0
+Visual Studio 2008 SP1 - 9.0.30729.17
+Visual Studio 2010 - 10.0
+Visual Studio 2010 sp1 - 10.0.40219
+Visual Studio 2012 - 11.0
+Visual Studio 2012 Update 4 - 11.0.61030</description>
+	<icon>https://lh4.googleusercontent.com/-vzTCP1Ext4I/UZ8yfUsPiNI/AAAAAAAACGA/LNIXeyzPMJY/s800/visualstudio11.png</icon>
+	<license>com.microsoft.VisualCPPRedistributableLicense</license>
+	<category>Development</category>
+</package>
+<package name="org.7-zip.SevenZIPA">
+	<title>7-ZIP A</title>
+	<url>http://www.7-zip.org</url>
+	<description>command line file archiver
+kw: 7zip</description>
+	<icon>https://lh5.googleusercontent.com/-nbJJ_tns0to/UcqlMmDce_I/AAAAAAAACQ8/Zys6cidYQaQ/s800/7zip.png</icon>
+	<license>org.7-zip.License</license>
+	<category>Tools</category>
+	<link href="http://www.7-zip.org/history.txt" rel="changelog" />
+</package>
+<package name="com.ghostscript.Ghostscript">
+	<title>Ghostscript</title>
+	<url>http://www.ghostscript.com</url>
+	<description>postScript and PDF interpreter</description>
+	<icon>http://git.ghostscript.com/?p=web/ghostscript.com.git;a=blob_plain;f=download/logo.png;h=ce1d3f0238f68e24248186a3d8d00ad9f76f5358;hb=HEAD</icon>
+	<license>org.gnu.GPLv3</license>
+	<category>Tools</category>
+</package>
+<package name="ar.com.buanzo.lame.LameForAudacity">
+	<title>Lame for Audacity</title>
+	<url>http://lame.buanzo.org/</url>
+	<description>MP3 encoding library</description>
+	<icon>https://lh6.googleusercontent.com/-bErhOj2v8xI/URTgxIt9uRI/AAAAAAAAAd0/PFtFOmOLMsM/s800/lame.png</icon>
+	<license>org.gnu.LGPLv2_1</license>
+	<category>Music</category>
+</package>
+<package name="net.nirsoft.MyUninstaller">
+	<title>MyUninstaller</title>
+	<url>http://www.nirsoft.net/utils/myuninst.html</url>
+	<description>alternative uninstaller utility to the standard Add/Remove applet in the control panel</description>
+	<icon>https://lh6.googleusercontent.com/-qoKVZIR160g/USjLXpR3bZI/AAAAAAAAAtk/DLVvIuwq_Ik/s800/-myuninst.png</icon>
+	<license>net.nirsoft.FreewareLicense</license>
+	<category>Tools</category>
+</package>
+<package name="com.microsoft.DotNetRedistributable">
+	<title>.NET redistributable runtime</title>
+	<url>http://msdn.microsoft.com/en-us/netframework/default.aspx</url>
+	<description>.NET runtime
+4.5.1: 4.5.50938.18408
+4.5.2: 4.5.51209.34209</description>
+	<icon>http://c.s-microsoft.com/en-us/CMSImages/microsoft_logo_56x56.png?version=ad0d2fa7-0ee8-4e82-ddbf-8ea5dc9d9c23</icon>
+	<license>com.microsoft.DotNetRedistributableLicense</license>
+	<category>Development</category>
+	<link href="http://msdn.microsoft.com/en-us/library/ms171868(v=vs.110).aspx" rel="changelog" />
+</package>
+<package name="com.github.bmatzelle.Gow">
+	<title>Gow</title>
+	<url>https://github.com/bmatzelle/gow</url>
+	<description>Gow (Gnu On Windows) is the lightweight alternative to Cygwin. It uses a 
+convenient Windows installer that installs about 130 extremely useful 
+open source UNIX applications compiled as native win32 binaries.
+Features &amp; benefits:
+* Ultra light: Small, light subset (about 10 MB) of of very useful UNIX 
+  binaries that do not have decent installers.
+* Shell window from any directory: Adds a Windows Explorer shell window 
+  so that you can right-click on any directory and open a command 
+  (cmd.exe) window from that directory.
+* Stable binaries: All commands are kept up to date but also as stable as 
+  possible.
+Programs:
+basename cat chgrp chmod chown cksum comm cp csplit cut dd df dircolors dirname du env expand expr factor fmt fold head id join ln logname ls md5sum mkdir mkfifo mknod mv nl od paste pathchk pr printenv printf pwd rm rmdir seq sha1sum sleep sort split su sum sync tac tail tee test touch tr uname unexpand uniq wc whoami yes bc bison bunzip2 bzip2 bzip2recover curl dc diff diff3 dos2unix gfind fgrep flex gawk gow gsar gzip indent jwhois less lesskey m4 make pageant patch pcre3 plink pscp psftp putty puttygen recode sed sftp shar tar unix2dos unshar unzip uudecode vim wget whereis xargs zip</description>
+	<icon>https://lh6.googleusercontent.com/-7dPvCSw3Yzk/UWqzesDhMLI/AAAAAAAABDg/8brpJn9gL38/s32/com.github.bmatzelle.Gow.png</icon>
+	<category>Tools</category>
+</package>
+<version name="0.2" package="exeproxy">
+	<url>http://downloads.sourceforge.net/project/npackd/exeproxy/exeproxy-0.2.zip</url>
+	<sha1>6dd19e4706cfaab9cf46dcbd83e91430e06d6260</sha1>
+</version>
+<package name="exeproxy">
+	<title>EXE Proxy</title>
+	<url>https://code.google.com/p/windows-package-manager/source/browse/?repo=npackd-cpp#hg%2Fexeproxy</url>
+	<description>This program serves as a proxy for another command line program. All the arguments will be passed as-is to the target program. The return code of the target program will be returned as exit code by EXE Proxy.
+EXE Proxy can be used to enable access to a command line program under another (possibly shorter) name. Another usage could be to store many copies of EXE proxy in one directory pointing to command line utilities on the computer and adding only this directory to the PATH environment variable. This would avoid reaching the maximum length for PATH (2048 characters) and making it very complicated while still be able to run all programs without specifying the directory where they reside. EXE Proxy could also be useful in making a GUI executable usable from the command line. Normally cmd.exe does not wait for GUI executables to end but returns immediately. EXE Proxy does not differentiate between GUI and non-GUI programs and always waits for the target process to end. 
+The path and file name of the target executable are stored directly as a resource in a copy of the EXE Proxy. During the start EXE Proxy reads the resource string and uses it to find the target executable. The resource string can either contain an absolute file name or a file name without slashes or backslashes. In the latter case the target executable should reside in the same directory as the EXE Proxy itself.
+In order to change the target executable resource entry you could start the EXE Proxy with the parameter "exeproxy-copy":
+    exeproxy.exe exeproxy-copy &lt;output file name&gt; &lt;target executable name&gt;
+The second parameter should be the name of the output exe file where a copy of the EXE Proxy will be stored. The third parameter should either contain an absolute path to the target executable or the name of the target executable without slashes or backslashes if the target executable resides in the same directory as the EXE Proxy.
+EXE Proxy uses semantic versioning (http://semver.org/). The versions before 1.0 will change the interface incompatibly so please use an exact version number as dependency.</description>
+	<license>org.gnu.GPLv3</license>
+	<category>Development</category>
+</package>

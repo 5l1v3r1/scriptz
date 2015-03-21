@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    <spec-version>2</spec-version>
+
+    <package name="nodiscc-toolkit">
+        <title>000 - Full Tookit</title>
+    </package>
+
+    <version name="1" package="com.example.MyPrograms" type="one-file">
+        <url>https://github.com/nodiscc</url>
+            <dependency package="info.kowalczyk.blog.SumatraPDF"\>
+            <dependency package="com.microsoft.SecurityEssentials"\>
+            <dependency package="org.safer-networking.SpyBotSearchAndDestroy"\>
+            <dependency package="emet"\>
+            <dependency package="org.7-zip.SevenZIP"\>
+            <dependency package="org.infrarecorder.InfraRecorder"\>
+            <dependency package="org.libreoffice.LibreOffice"\>
+            <dependency package="org.pdfforge.PDFCreator"\>
+            <dependency package="f.lux"\>
+            <dependency package="org.mozilla.Firefox"\>
+            <dependency package="org.mozilla.Thunderbird"\>
+            <dependency package="ca.cypherpunks.OTRPidginPlugin"\>
+            <dependency package="net.sourceforge.pidgin.Pidgin"\>
+            <dependency package="net.sourceforge.mumble.Mumble"\>
+            <dependency package="org.deluge-torrent.Deluge"\>
+            <dependency package="com.owncloud.OwnCloudClient"\>
+            <dependency package="net.winscp.WinSCP"\>
+            <dependency package="marble"\>
+            <dependency package="org.torproject.Tor"\>
+            <dependency package="com.peerblock.PeerBlock"\>
+            <dependency package="com.videolan.VLCMediaPlayer"\>
+            <dependency package="audacious"\>
+            <dependency package="com.googlecode.gps-gimp-paint-studio.GPS"\>
+            <dependency package="org.gimp.Gimp"\>
+            <dependency package="imagemagick"\>
+            <dependency package="org.inkscape.Inkscape"\>
+            <dependency package="net.scribus.Scribus"\>
+            <dependency package="net.sourceforge.audacity.Audacity"\>
+            <dependency package="net.sourceforge.cdexos.CDex"\>
+            <dependency package="org.winff.WinFF"\>
+            <dependency package="net.sourceforge.avidemux.Avidemux"\>
+            <dependency package="popcorn-time"\>
+            <dependency package="org.electricsheep.ElectricSheep"\>
+            <dependency package="fr.handbrake.HandBrake"\>
+            <dependency package="de.irfanview.IrfanView"\>
+            <dependency package="org.blender.Blender"\>
+            <dependency package="org.gnome.live.dia.Dia"\>
+            <dependency package="org.musicbrainz.musicbrainzpicard.MusicBrainzPicard"\>
+            <dependency package="com.sweethome3d.SweetHome3D"\>
+            <dependency package="com.sweethome3d.SH3DTrees"\>
+            <dependency package="com.sweethome3d.SH3DScopia"\>
+            <dependency package="com.sweethome3d.SH3DReallusion"\>
+            <dependency package="com.sweethome3d.SH3DLucaPresidente"\>
+            <dependency package="com.sweethome3d.SH3DKatorLega"\>
+            <dependency package="com.sweethome3d.SH3DContributions"\>
+            <dependency package="net.nirsoft.Launcher"\>
+            <dependency package="open-hardware-monitor"\>
+            <dependency package="bleachbit"\>
+            <dependency package="org.sysprogs.WinCDEmu"\>
+            <dependency package="universal-usb-installer"\>
+            <dependency package="com.piriform.Recuva"\>
+            <dependency package="org.cgsecurity.testdisk.TestDisk"\>
+            <dependency package="com.ext2fsd.ext2fsd"\>
+            <dependency package="com.microsoft.ProcessExplorer"\>
+            <dependency package="org.virtualbox.virtualbox"\>
+            <dependency package="net.sourceforge.NotepadPlusPlus"\>
+            <dependency package="net.sourceforge.console.Console"\>
+            <dependency package="meld"\>
+            <dependency package="org.winpcap.WinPcapInstaller"\>
+            <dependency package="org.wireshark.Wireshark"\>
+            <dependency package="uk.org.greenend.chiark.sgtatham.Putty"\>
+            <dependency package="pcsx2"\>
+    </version>
+ </root>
