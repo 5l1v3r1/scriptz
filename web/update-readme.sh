@@ -32,7 +32,7 @@
 # Note that setting high quality values may result in a file larger than the original
 # Possible values default, screen, ebook, printer, prepress
 pdf_quality="ebook"
-optimize_images="true"
+optimize_images="false"
 local_mdwiki="true"
 mdwiki_url="https://raw.githubusercontent.com/nodiscc/scriptz/master/web/mdwiki-0.6.2/mdwiki.html"
 mdwiki_localfile="~/git/notes/index.html"
@@ -114,13 +114,13 @@ _PrintArticles() { #Print a list of .txt/.md articles with tags,date and a short
 			else doctags="\`$doctags\`"; fi
 
 			docextract=$(head -n5 "$filename" |egrep "(^[a-Z]|^\[)" |  cut -b 1-130 | head -n1)
-			docextract="$docextract [...]"
+			if [ "$docextract" != "" ]; then docextract="$docextract [...]"; fi
 
 			if [ "$filename" != "README.md" ]; then
 				mdline="**[$doctitle]($filename)** _<small>${filedate}</small>_ $doctags"
 
 				echo "$mdline"
-				echo "<small>$docextract</small>"
+				if [ "$docextract" != "" ]; then echo "<small>$docextract</small>"; fi
 				echo " "
 			fi
 		done
@@ -195,6 +195,7 @@ _OptimizeImages() {
 
 # Run it
 
+_OptimizeImages
 for dir in $(_Recurse); do
 	cd "$dir"
 	main >|index.md
